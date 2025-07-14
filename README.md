@@ -1,1 +1,504 @@
-# ASIR-VIVEK
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ASIR VIVEK A | Portfolio</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* Base Reset */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --navy: #001f3f;
+        --cyan: #00bcd4;
+        --white: #ffffff;
+        --light-gray: #f5f7fa;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        line-height: 1.6;
+        color: var(--white);
+        background: var(--navy);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      /* Container */
+      .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      /* Header */
+      header {
+        background: rgb(0 15 50 / 0.7);
+        backdrop-filter: blur(8px);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 999;
+      }
+
+      .nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 0;
+      }
+
+      .logo {
+        font-weight: 700;
+        font-size: 1.5rem;
+        letter-spacing: 1.5px;
+        color: var(--cyan);
+      }
+
+      .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 1.5rem;
+      }
+
+      .nav-links li {
+        position: relative;
+      }
+
+      .nav-links a {
+        font-weight: 600;
+        transition: color 0.2s ease;
+      }
+
+      .nav-links a:hover {
+        color: var(--cyan);
+      }
+
+      /* Hamburger for mobile */
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 4px;
+        cursor: pointer;
+      }
+
+      .hamburger span {
+        height: 3px;
+        width: 25px;
+        background: var(--white);
+      }
+
+      /* Hero */
+      #hero {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        height: 100vh;
+        padding: 0 1rem;
+        background: url("https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=60")
+          center/cover;
+        position: relative;
+      }
+
+      #hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgb(0 31 63 / 0.8);
+      }
+
+      #hero .content {
+        position: relative;
+        z-index: 1;
+      }
+
+      #hero h1 {
+        font-size: clamp(2.3rem, 5vw + 1rem, 4rem);
+        margin-bottom: 1rem;
+        font-weight: 700;
+      }
+
+      #hero p {
+        font-size: 1.1rem;
+        max-width: 700px;
+        margin-inline: auto;
+        line-height: 1.8;
+      }
+
+      #hero .btn {
+        display: inline-block;
+        margin-top: 2rem;
+        background: var(--cyan);
+        color: var(--navy);
+        padding: 0.8rem 2rem;
+        border-radius: 50px;
+        font-weight: 600;
+        transition: background 0.3s ease;
+      }
+
+      #hero .btn:hover {
+        background: var(--white);
+      }
+
+      /* About */
+      #about {
+        padding: 6rem 0;
+        background: var(--navy);
+      }
+
+      #about h2 {
+        text-align: center;
+        font-size: 2.2rem;
+        margin-bottom: 2rem;
+        color: var(--cyan);
+      }
+
+      #about .grid {
+        display: grid;
+        gap: 2rem;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        align-items: center;
+      }
+
+      #about img {
+        width: 100%;
+        border-radius: 1rem;
+        border: 4px solid var(--cyan);
+      }
+
+      #about .text {
+        font-weight: 300;
+      }
+
+      /* Skills */
+      #skills {
+        padding: 6rem 0;
+        background: var(--light-gray);
+        color: var(--navy);
+      }
+
+      #skills h2 {
+        text-align: center;
+        font-size: 2.2rem;
+        margin-bottom: 2rem;
+        color: var(--navy);
+      }
+
+      .skills-grid {
+        display: grid;
+        gap: 1.5rem;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        place-items: center;
+      }
+
+      .skill {
+        background: var(--white);
+        padding: 1rem 1.2rem;
+        border-radius: 0.75rem;
+        font-weight: 600;
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
+        text-align: center;
+      }
+
+      /* Projects */
+      #projects {
+        padding: 6rem 0;
+        background: var(--navy);
+      }
+
+      #projects h2 {
+        text-align: center;
+        font-size: 2.2rem;
+        margin-bottom: 2rem;
+        color: var(--cyan);
+      }
+
+      .projects-grid {
+        display: grid;
+        gap: 2rem;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      }
+
+      .project {
+        background: rgb(255 255 255 / 0.05);
+        padding: 1.5rem;
+        border-radius: 1rem;
+        backdrop-filter: blur(4px);
+        border: 1px solid rgb(255 255 255 / 0.1);
+        transition: transform 0.25s ease;
+      }
+
+      .project:hover {
+        transform: translateY(-6px);
+      }
+
+      .project img {
+        width: 100%;
+        border-radius: 0.75rem;
+        margin-bottom: 1rem;
+      }
+
+      .project h3 {
+        font-size: 1.25rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .project p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+
+      /* Contact */
+      #contact {
+        padding: 6rem 0;
+        background: var(--light-gray);
+        color: var(--navy);
+      }
+
+      #contact h2 {
+        text-align: center;
+        font-size: 2.2rem;
+        margin-bottom: 1rem;
+      }
+
+      #contact p {
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto 2rem auto;
+      }
+
+      #contact .btn {
+        display: inline-block;
+        background: var(--navy);
+        color: var(--white);
+        padding: 0.8rem 2rem;
+        border-radius: 50px;
+        font-weight: 600;
+        transition: background 0.3s ease;
+      }
+
+      #contact .btn:hover {
+        background: var(--cyan);
+        color: var(--navy);
+      }
+
+      /* Footer */
+      footer {
+        background: var(--navy);
+        text-align: center;
+        padding: 2rem 1rem;
+        font-size: 0.9rem;
+      }
+
+      /* Media Queries */
+      @media (max-width: 768px) {
+        .hamburger {
+          display: flex;
+        }
+
+        .nav-links {
+          position: fixed;
+          top: 70px;
+          right: -100%;
+          height: calc(100vh - 70px);
+          width: 100%;
+          max-width: 320px;
+          background: var(--navy);
+          flex-direction: column;
+          align-items: center;
+          padding-top: 2rem;
+          gap: 2rem;
+          transition: right 0.3s ease;
+        }
+
+        .nav-links.show {
+          right: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header / Navigation -->
+    <header>
+      <div class="container nav">
+        <a href="#hero" class="logo">AV</a>
+
+        <nav>
+          <ul class="nav-links" id="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+
+        <div class="hamburger" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero">
+      <div class="content container">
+        <h1>Hi, I'm <span style="color: var(--cyan)">Asir Vivek A</span></h1>
+        <p>
+          Senior Design Engineer at Sansera Engineering who loves blending
+          creativity and precision to craft innovative automation solutions.
+          Welcome to my digital space!
+        </p>
+        <a href="#contact" class="btn">Let's Collaborate</a>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+      <div class="container">
+        <h2>About Me</h2>
+        <div class="grid">
+          <img
+            src="https://images.unsplash.com/photo-1581091012184-c37ac9e8f864?auto=format&fit=crop&w=800&q=60"
+            alt="Profile picture"
+          />
+          <div class="text">
+            <p>
+              Hello! I'm Asir, a passionate Design Engineer with over 6 years of
+              experience specializing in pneumatics, hydraulics and automation
+              systems. At Sansera Engineering, I lead design projects from
+              concept through manufacturing, ensuring efficiency, safety and
+              aesthetic appeal.
+            </p>
+            <p>
+              My toolkit spans AutoCAD, Inventor, SolidWorks, and cutting-edge
+              simulation software. I enjoy mentoring peers, developing in-depth
+              training content, and continuously exploring low‑cost automation
+              strategies.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+      <div class="container">
+        <h2>Core Skills</h2>
+        <div class="skills-grid">
+          <div class="skill">Automation Design</div>
+          <div class="skill">Pneumatics</div>
+          <div class="skill">Hydraulics</div>
+          <div class="skill">CAD (AutoCAD, Inventor)</div>
+          <div class="skill">Finite Element Analysis</div>
+          <div class="skill">Lean Manufacturing</div>
+          <div class="skill">Low‑Cost Automation</div>
+          <div class="skill">Team Leadership</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+      <div class="container">
+        <h2>Highlighted Projects</h2>
+        <div class="projects-grid">
+          <!-- Project 1 -->
+          <div class="project">
+            <img
+              src="https://images.unsplash.com/photo-1555897955-43ff1c433b31?auto=format&fit=crop&w=900&q=60"
+              alt="Project 1"
+            />
+            <h3>Automated Assembly Line</h3>
+            <p>
+              Designed and implemented a modular assembly line that reduced
+              cycle time by 30% and improved quality control through integrated
+              vision systems.
+            </p>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="project">
+            <img
+              src="https://images.unsplash.com/photo-1560185127-6a8fd0c1c2a1?auto=format&fit=crop&w=900&q=60"
+              alt="Project 2"
+            />
+            <h3>Pneumatic Gripper Retrofit</h3>
+            <p>
+              Upgraded legacy machinery with a custom pneumatic gripper system
+              capable of handling delicate components, boosting throughput by
+              18%.
+            </p>
+          </div>
+
+          <!-- Project 3 -->
+          <div class="project">
+            <img
+              src="https://images.unsplash.com/photo-1544473244-a27fdd1839c3?auto=format&fit=crop&w=900&q=60"
+              alt="Project 3"
+            />
+            <h3>Hydraulic Lift Optimization</h3>
+            <p>
+              Optimized a 200 kg hydraulic lift design by performing precise
+              load calculations and safety factor analysis, resulting in 25%
+              material savings.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <div class="container">
+        <h2>Get In Touch</h2>
+        <p>
+          Have a project in mind or looking for consultancy? I'd love to hear
+          from you. Reach out via email and let's make something amazing
+          together!
+        </p>
+        <a href="mailto:asir.vivek@example.com" class="btn">Email Me</a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 Asir Vivek A. All Rights Reserved.</p>
+    </footer>
+
+    <!-- JavaScript for Mobile Nav -->
+    <script>
+      const hamburger = document.getElementById("hamburger");
+      const navLinks = document.getElementById("nav-links");
+
+      hamburger.addEventListener("click", () => {
+        navLinks.classList.toggle("show");
+      });
+
+      // Close nav when link clicked (mobile)
+      navLinks.querySelectorAll("a").forEach((link) =>
+        link.addEventListener("click", () => navLinks.classList.remove("show"))
+      );
+    </script>
+  </body>
+</html>
